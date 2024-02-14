@@ -1,0 +1,10 @@
+{
+  "id": "tanzu-holly-tdc-guides-kubernetes-workload-tenancy-priority-preemption",
+  "slug": "workload-tenancy-priority-preemption",
+  "title": "Pod Priority and Preemption",
+  "type": "article",
+  "status": "unlisted",
+  "topics": [
+    "TDC"
+  ]
+}

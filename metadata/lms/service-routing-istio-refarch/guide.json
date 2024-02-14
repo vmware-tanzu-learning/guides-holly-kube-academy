@@ -1,0 +1,10 @@
+{
+  "id": "tanzu-holly-tdc-guides-kubernetes-service-routing-istio-refarch",
+  "slug": "service-routing-istio-refarch",
+  "title": "Istio Reference Architecture",
+  "type": "article",
+  "status": "unlisted",
+  "topics": [
+    "TDC"
+  ]
+}

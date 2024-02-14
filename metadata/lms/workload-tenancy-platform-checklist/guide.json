@@ -1,0 +1,10 @@
+{
+  "id": "tanzu-holly-tdc-guides-kubernetes-workload-tenancy-platform-checklist",
+  "slug": "workload-tenancy-platform-checklist",
+  "title": "Platform Readiness Checklist",
+  "type": "article",
+  "status": "unlisted",
+  "topics": [
+    "TDC"
+  ]
+}

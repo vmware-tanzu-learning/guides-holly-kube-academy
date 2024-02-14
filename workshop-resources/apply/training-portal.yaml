@@ -1,10 +1,10 @@
 apiVersion: training.educates.dev/v1beta1
 kind: TrainingPortal
 metadata:
-  name: tanzu-gunter
+  name: tanzu-holly
 spec:
   portal:
-    title: Tanzu Academy / Guides
+    title: KubeAcademy / Guides
     sessions:
       maximum: 30
       registered: 1 # this prevents a person from running more than one active lab/guide from this at a time
@@ -13,8 +13,8 @@ spec:
     theme:
       frame:
         ancestors:
-        - https://tanzu.academy
-        - https://*.tanzu.academy
+        - https://kube.academy
+        - https://*.kube.academy
         - https://*.fixeldev.com
         - https://*.kubeacademy.fixeldev.com
         - http://localhost:8080
@@ -26,7 +26,7 @@ spec:
     amplitude:
       trackingId: "${ANALYTICS_AMPLITUDE_ID}"
   workshops:
-  - name: tanzu-gunter-tanzu-tools-configuration
+  - name: tanzu-holly-tanzu-tools-configuration
     expires: 30m       # set the default time allocated for the user's session
     orphaned: 10m      # if there is no activity after certain amount of time, delete the session
     deadline: 60m     # the maximum amount of time the learner could extend the session to

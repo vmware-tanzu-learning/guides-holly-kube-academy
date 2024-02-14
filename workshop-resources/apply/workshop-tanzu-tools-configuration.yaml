@@ -1,7 +1,7 @@
 apiVersion: training.educates.dev/v1beta1
 kind: Workshop
 metadata:
-  name: tanzu-gunter-tanzu-tools-configuration
+  name: tanzu-holly-tanzu-tools-configuration
 spec:
   title: Guide to Install Tanzu Tools for Tanzu Application Platform
   description: Guide to Install Tanzu Tools for Tanzu Application Platform
@@ -80,4 +80,4 @@ spec:
           spec:
             containers:
             - name: files
-              image: ghcr.io/vmware-tanzu-learning/tanzu-gunter:${VERSION}
+              image: ghcr.io/vmware-tanzu-learning/tanzu-holly:${VERSION}

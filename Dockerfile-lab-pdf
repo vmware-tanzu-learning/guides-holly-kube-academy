@@ -1,0 +1,15 @@
+FROM sphinxdoc/sphinx:3.2.1
+COPY . /usr/src/lab
+COPY Makefile-sphinx /usr/src/lab/Makefile
+WORKDIR /usr/src/lab
+RUN apt-get update && apt-get install -y git && apt-get clean
+RUN pip install --no-cache-dir sphinx_rtd_theme sphinx-copybutton sphinx_design git+https://github.com/bonartm/sphinxcontrib-quizdown
+RUN make clean && make latex
+
+FROM sphinxdoc/sphinx-latexpdf:3.2.1
+COPY --from=0 /usr/src/lab/build/latex /opt/latex
+WORKDIR /opt/latex
+RUN pdflatex /opt/latex/lab.tex
+
+FROM alpine:3.12
+COPY --from=1 /opt/latex/lab.pdf /

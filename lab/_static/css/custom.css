@@ -1,0 +1,136 @@
+/* Course-specific (Happy) custom styling - remove elements to access instructions for other labs */
+
+footer.prev-next-footer {
+  visibility: hidden;
+}
+
+label.sidebar-toggle {
+  visibility: hidden;
+}
+
+button.search-button {
+  visibility: hidden;
+}
+
+
+/* Style full external links with indicator icon */
+a[href^="http"] {
+  background: url("../images/external-link.svg") no-repeat 100% 0;
+  background-size: 8px 8px;
+  padding-right: 11px;
+}
+
+html[data-theme="dark"] a[href^="http"] {
+  background: url("../images/external-link-inverse.svg") no-repeat 100% 0;
+  background-size: 8px 8px;
+  padding-right: 11px;
+}
+
+/* website icon*/
+div.web {
+  display: block;
+  line-height: 24px;
+  margin: 0 0 24px;
+}
+
+/* Default (light) version */
+
+div.web p:before {
+  content: url("../images/browser.svg");
+  background-color: darkslategray;
+  color: white;
+  margin: 0 10px 0 0;
+  border: 1px solid black;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-right: 4px;
+  padding-left: 4px;
+}
+
+/* Dark-mode version */
+
+html[data-theme="dark"] div.web p:before {
+  content: url("../images/browser-inverse.svg");
+  background-color: white;
+  color: darkslategray;
+  margin: 0 10px 0 0;
+  border: 1px solid lightslategray;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-right: 4px;
+  padding-left: 4px;
+}
+
+/* Make a div with run class format like a paragraph */
+div.run {
+  display: block;
+  line-height: 24px;
+  margin: 0 0 24px;
+}
+
+/* Add marker text to 'run' divs */
+div.run p:before {
+  content: ">_";
+  border: solid 1px black;
+  background-color: darkslategray;
+  color: white;
+  padding: 2px;
+  margin: 0 10px 0 0;
+}
+
+/* Dark mode version */
+html[data-theme="dark"] div.run p:before {
+  content: ">_";
+  border: solid 1px lightslategray;
+  background-color: white;
+  color: darkslategray;
+  padding: 2px;
+  margin: 0 10px 0 0;
+}
+
+html[data-theme="light"] .pre {
+  color: #007faa;
+}
+
+html[data-theme="dark"] .pre {
+  color: #00e0e0;
+}
+
+/* Style 'question' admonitions */
+
+.admonition.question > .admonition-title:before {
+  background-color: var(--pst-color-success-bg);
+}
+
+.admonition.question > .admonition-title:after {
+  color: var(--pst-color-success);
+}
+
+.admonition.question {
+  border-color: var(--pst-color-success);
+}
+
+img.screenshot {
+  box-shadow: 0 0.2rem 0.5rem var(--pst-color-shadow),0 0 0.0625rem var(--pst-color-shadow)!important;
+  margin-bottom: 1rem;
+}
+
+/* Body width and view adjustments */
+.bd-container {
+  justify-content: space-between;
+}
+
+.bd-page-width {
+  max-width: 100%;
+}
+
+/* Chrome and safari hide scrollbar */
+.bd-sidebar-primary::-webkit-scrollbar {
+  display: none;
+}
+
+/* Firefox and MS hide scrollbar */
+.bd-sidebar-primary {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

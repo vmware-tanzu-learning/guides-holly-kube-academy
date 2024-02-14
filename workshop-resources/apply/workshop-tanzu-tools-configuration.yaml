@@ -1,0 +1,83 @@
+apiVersion: training.educates.dev/v1beta1
+kind: Workshop
+metadata:
+  name: tanzu-gunter-tanzu-tools-configuration
+spec:
+  title: Guide to Install Tanzu Tools for Tanzu Application Platform
+  description: Guide to Install Tanzu Tools for Tanzu Application Platform
+  difficulty: beginner
+  duration: 30m
+  vendor: VMware Inc.
+  workshop:
+    image: jdk17-environment:*
+  session:
+    namespaces:
+    env:
+    - name: WEBSERVER
+      value: "http://$workshop_namespace-files"
+    applications:
+      workshop:
+        # note this URL must end in a "/". Appears to be a bug in Contour where if it doesn't
+        # it redirects to a URL with :8080 in it
+        url: $(ingress_protocol)://$(workshop_namespace)-files.$(ingress_domain)/educates/instructions/tanzu-tools-configuration/guide.html
+      terminal:
+        enabled: true
+      editor:
+        enabled: true
+  environment:
+    objects:
+    - apiVersion: v1
+      kind: Service
+      metadata:
+        name: $(workshop_namespace)-files
+        namespace: $(workshop_namespace)
+      spec:
+        type: ClusterIP
+        ports:
+        - port: 80
+          protocol: TCP
+          targetPort: 8080
+        selector:
+          deployment: files
+    - apiVersion: networking.k8s.io/v1
+      kind: Ingress
+      metadata:
+        name: $(workshop_namespace)-files
+        namespace: $(workshop_namespace)
+      spec:
+        tls:
+        - hosts:
+            - $(workshop_namespace)-files.$(ingress_domain)
+          secretName: $(ingress_secret)
+        rules:
+        - host: $(workshop_namespace)-files.$(ingress_domain)
+          http:
+            paths:
+            - backend:
+                service:
+                  name: $(workshop_namespace)-files
+                  port:
+                    number: 80
+              pathType: Prefix
+              path: /
+    - apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: $(workshop_namespace)-files
+        namespace: $(workshop_namespace)
+      spec:
+        serviceAccountName: $(service_account)
+        replicas: 1
+        selector:
+          matchLabels:
+            deployment: files
+        strategy:
+          type: Recreate
+        template:
+          metadata:
+            labels:
+              deployment: files
+          spec:
+            containers:
+            - name: files
+              image: ghcr.io/vmware-tanzu-learning/tanzu-gunter:${VERSION}

@@ -1,0 +1,4 @@
+{
+    "id": "${COURSE_ID}",
+    "name": "${COURSE_TITLE}"
+  }

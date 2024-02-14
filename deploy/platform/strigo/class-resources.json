@@ -1,0 +1,19 @@
+[
+  {
+    "type": "lab_instance",
+    "id": "${COURSE_ID}-machine-01",
+    "name": "master",
+    "instance_type": "t2.medium",
+    "ec2_region": "us-west-1",
+    "image_id": "ami-TEMPLATE_REPLACEME",
+    "image_user": "ubuntu",
+    "is_custom_image": true,
+    "userdata": "${USERDATA_01}",
+    "webview_links": [
+      {
+          "name": "Lab Guide",
+          "url": "http://instance.autolab.strigo.io:8080"
+      }
+    ]
+  }
+]

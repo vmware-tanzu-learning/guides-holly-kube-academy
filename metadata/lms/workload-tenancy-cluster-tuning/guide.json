@@ -1,5 +1,5 @@
 {
-  "id": "tanzu-holly-tdc-guides-kubernetes-workload-tenancy-cluster-tuning",
+  "id": "kube-tanzu-holly-tdc-guides-kubernetes-workload-tenancy-cluster-tuning",
   "slug": "workload-tenancy-cluster-tuning",
   "title": "Cluster Tuning Guide",
   "type": "article",

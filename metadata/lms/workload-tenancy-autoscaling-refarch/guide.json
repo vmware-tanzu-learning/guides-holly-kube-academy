@@ -1,5 +1,5 @@
 {
-  "id": "tanzu-holly-tdc-guides-kubernetes-workload-tenancy-autoscaling-refarch",
+  "id": "kube-tanzu-holly-tdc-guides-kubernetes-workload-tenancy-autoscaling-refarch",
   "slug": "workload-tenancy-autoscaling-refarch",
   "title": "Autoscaling Reference Architecture",
   "type": "article",
